@@ -66,7 +66,8 @@ fun PermissionScreen(
         stepNumber = 3,
         totalSteps = 3,
         onBack = onBack,
-        onNext = onNext
+        onNext = onNext,
+        contentHorizontalPadding = 0.dp
     ) {
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -96,7 +97,11 @@ fun PermissionScreen(
                 }
             )
 
-            HorizontalDivider(color = BorderColor.copy(alpha = 0.25f), thickness = 0.5.dp)
+            HorizontalDivider(
+                modifier = Modifier.padding(horizontal = 24.dp),
+                color = BorderColor.copy(alpha = 0.25f),
+                thickness = 0.5.dp
+            )
 
             PermissionToggleRow(
                 title = "Background Activity",
@@ -121,7 +126,11 @@ fun PermissionScreen(
                 }
             )
 
-            HorizontalDivider(color = BorderColor.copy(alpha = 0.25f), thickness = 0.5.dp)
+            HorizontalDivider(
+                modifier = Modifier.padding(horizontal = 24.dp),
+                color = BorderColor.copy(alpha = 0.25f),
+                thickness = 0.5.dp
+            )
 
             PermissionToggleRow(
                 title = "In-App Updates",
@@ -163,7 +172,7 @@ private fun PermissionToggleRow(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onToggle(!isChecked) }
-            .padding(vertical = 14.dp),
+            .padding(horizontal = 24.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(modifier = Modifier.weight(1f)) {
