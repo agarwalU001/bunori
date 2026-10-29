@@ -66,8 +66,7 @@ fun PermissionScreen(
         stepNumber = 3,
         totalSteps = 3,
         onBack = onBack,
-        onNext = onNext,
-        contentHorizontalPadding = 0.dp
+        onNext = onNext
     ) {
         Column(
             modifier = Modifier.fillMaxWidth(),

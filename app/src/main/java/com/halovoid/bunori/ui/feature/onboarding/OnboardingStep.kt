@@ -23,7 +23,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.halovoid.bunori.ui.core.theme.*
@@ -42,7 +41,6 @@ fun OnboardingStep(
     nextButtonText: String = "Next",
     bottomAction: (@Composable () -> Unit)? = null,
     isScrollable: Boolean = true,
-    contentHorizontalPadding: Dp = 24.dp,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Scaffold(
@@ -137,13 +135,12 @@ fun OnboardingStep(
         }
     ) { innerPadding ->
         val scrollModifier = if (isScrollable) Modifier.verticalScroll(rememberScrollState()) else Modifier
-        val headerHorizontalPadding = 24.dp - contentHorizontalPadding
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
                 .then(scrollModifier)
-                .padding(horizontal = contentHorizontalPadding, vertical = 8.dp),
+                .padding(vertical = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             if (!title.isNullOrBlank()) {
@@ -153,7 +150,7 @@ fun OnboardingStep(
                     color = PrimaryText,
                     fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(horizontal = headerHorizontalPadding)
+                    modifier = Modifier.padding(horizontal = 24.dp)
                 )
             }
             
@@ -165,7 +162,7 @@ fun OnboardingStep(
                     color = SecondaryText,
                     textAlign = TextAlign.Center,
                     lineHeight = 20.sp,
-                    modifier = Modifier.padding(horizontal = headerHorizontalPadding + 8.dp)
+                    modifier = Modifier.padding(horizontal = 32.dp)
                 )
             }
             
